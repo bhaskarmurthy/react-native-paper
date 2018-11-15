@@ -207,7 +207,10 @@ class Button extends React.Component<Props, State> {
       borderWidth,
       borderRadius: roundness,
     };
-    const touchableStyle = [{ borderRadius: roundness }, { height: style.height }];
+
+    // flatten style in case we get a style array
+    const flatStyle = StyleSheet.flatten(style) || {}
+    const touchableStyle = [{ borderRadius: roundness }, { height: flatStyle.height }];
     const textStyle = { color: textColor, fontFamily };
     const elevation = disabled ? 0 : this.state.elevation;
 
