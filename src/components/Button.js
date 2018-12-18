@@ -134,6 +134,7 @@ class Button extends React.Component<Props, State> {
       dark,
       loading,
       icon,
+      iconSize,
       color: buttonColor,
       children,
       accessibilityLabel,
@@ -209,7 +210,7 @@ class Button extends React.Component<Props, State> {
     };
 
     // flatten style in case we get a style array
-    const flatStyle = StyleSheet.flatten(style) || {}
+    const flatStyle = StyleSheet.flatten(style) || {};
     const touchableStyle = [{ borderRadius: roundness }, { height: flatStyle.height }];
     const textStyle = { color: textColor, fontFamily };
     const elevation = disabled ? 0 : this.state.elevation;
@@ -242,7 +243,7 @@ class Button extends React.Component<Props, State> {
           <View style={styles.content}>
             {icon && loading !== true ? (
               <View style={styles.icon}>
-                <Icon source={icon} size={16} color={textColor} />
+                <Icon source={icon} size={iconSize || 16} color={textColor} />
               </View>
             ) : null}
             {loading ? (
@@ -286,11 +287,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    flex: 1,
   },
   icon: {
-    width: 16,
-    marginLeft: 12,
-    marginRight: -4,
+    position: "absolute",
+    left: 10,
   },
   label: {
     textAlign: 'center',
