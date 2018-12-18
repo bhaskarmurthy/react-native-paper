@@ -1,7 +1,7 @@
 /* @flow */
 
 import * as React from 'react';
-import { ActivityIndicator, Animated, View, StyleSheet } from 'react-native';
+import { ActivityIndicator, Animated, View, StyleSheet, Platform } from 'react-native';
 import color from 'color';
 import Icon from './Icon';
 import Surface from './Surface';
@@ -297,6 +297,10 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     marginVertical: 9,
     marginHorizontal: 16,
+    marginTop: Platform.select({
+      ios: 12,
+      android: 0,
+    }),
   },
   compactLabel: {
     marginHorizontal: 8,
