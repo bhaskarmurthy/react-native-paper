@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: Platform.select({
       ios: 12,
-      android: 0,
+      android: 9,
     }),
   },
   compactLabel: {
