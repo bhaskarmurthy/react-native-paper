@@ -105,7 +105,7 @@ class Button extends React.Component<Props, State> {
   };
 
   state = {
-    elevation: new Animated.Value(this.props.mode === 'contained' ? 0 : 0),
+    elevation: new Animated.Value(0),
   };
 
   _handlePressIn = () => {
